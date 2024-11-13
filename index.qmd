@@ -1,0 +1,45 @@
+---
+title: "My first slides"
+author: "Maria Carda"
+format: revealjs
+editor: visual
+---
+
+## Load the data
+
+```{r}
+#| echo: true
+#| code-fold: true
+
+library(gapminder)
+gapminder
+```
+
+---
+
+## Filter data
+
+```{r}
+#| echo: true
+#| code-fold: true
+
+library(dplyr)
+ gapminder_2007 <- 
+   gapminder |> 
+filter(year == 2007)
+```
+
+---
+## Plot the data
+
+```{r}
+#| echo: true
+#| code-fold: true
+
+library(ggplot2)
+ ggplot(gapminder_2007) +
+ geom_point(aes(x = lifeExp, y = gdpPercap,
+ color = continent)) +
+theme_minimal()
+```
+
